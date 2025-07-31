@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Purchase Form - Online Shopping</title>
+</head>
+<body>
+  <h1><center>Purchase Form</center></h1>
+  <hr>
+
+  <center>
+  <form action="home.html" method="post">
+    <table cellpadding="10">
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" name="name" required></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="email" name="email" required></td>
+      </tr>
+      <tr>
+        <td>Phone:</td>
+        <td><input type="tel" name="phone" required></td>
+      </tr>
+      <tr>
+        <td>Quantity:</td>
+        <td><input type="number" name="quantity" min="1" max="10"></td>
+      </tr>
+      <tr>
+        <td>Delivery Date:</td>
+        <td><input type="date" name="delivery"></td>
+      </tr>
+      <tr>
+        <td>Payment Method:</td>
+        <td>
+          <select name="payment">
+            <option>UPI</option>
+            <option>Credit Card</option>
+            <option>Cash on Delivery</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="submit" value="Buy Now">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <br>
+  <p>Don't have an account? <a href="#">Register here</a></p>
+  <a href="home.html">Back to Home</a>
+  </center>
+</body>
+</html>
