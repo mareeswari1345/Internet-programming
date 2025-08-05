@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title>Purchase Form - Online Shopping</title>
+</head>
+<body style="background-color: #e6f2f3; font-family: Arial, sans-serif; color: #2f4f4f;">
+
+  <h1 style="text-align: center; color: #007777;">Purchase Form</h1>
+  <hr style="border: none; height: 2px; background-color: #b2d8d8; width: 60%;">
+
+  <center>
+    <form action="home.html" method="post" style="background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 50%;">
+      <table cellpadding="10">
+        <tr>
+          <td><strong>Name:</strong></td>
+          <td><input type="text" name="name" required style="padding: 5px; width: 100%;"></td>
+        </tr>
+        <tr>
+          <td><strong>Email:</strong></td>
+          <td><input type="email" name="email" required style="padding: 5px; width: 100%;"></td>
+        </tr>
+        <tr>
+          <td><strong>Phone:</strong></td>
+          <td><input type="tel" name="phone" required style="padding: 5px; width: 100%;"></td>
+        </tr>
+        <tr>
+          <td><strong>Quantity:</strong></td>
+          <td><input type="number" name="quantity" min="1" max="10" style="padding: 5px; width: 100%;"></td>
+        </tr>
+        <tr>
+          <td><strong>Delivery Date:</strong></td>
+          <td><input type="date" name="delivery" style="padding: 5px; width: 100%;"></td>
+        </tr>
+        <tr>
+          <td><strong>Payment Method:</strong></td>
+          <td>
+            <select name="payment" style="padding: 5px; width: 100%;">
+              <option>UPI</option>
+              <option>Credit Card</option>
+              <option>Cash on Delivery</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="submit" value="Buy Now" style="background-color: #007777; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <br>
+    <p style="color: #555;">Don't have an account? <a href="#" style="color: #007777;">Register here</a></p>
+    <a href="home.html" style="color: #007777;">Back to Home</a>
+  </center>
+</body>
+</html>
