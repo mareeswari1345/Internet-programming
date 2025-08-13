@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #e0f7fa;
+      margin: 0;
+    }
+
+    form {
+      background-color: white;
+      padding: 30px 40px;
+      max-width: 450px;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #ccc;
+    }
+
+    h2 {
+      color: #004d40;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #004d40;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      box-sizing: border-box;
+      border: 1px solid #004d40;
+      border-radius: 5px;
+      color: #004d40;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="date"]:focus {
+      border-color: #00796b;
+      outline: none;
+    }
+
+    .gender-group {
+      margin-top: 20px;
+      margin-bottom: 25px;
+      color: #004d40;
+    }
+
+    .gender-group > label:first-child {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .gender-option {
+      margin-top: 8px;
+      font-weight: normal;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .gender-option input[type="radio"] {
+      margin-right: 8px;
+      cursor: pointer;
+    }
+
+    input[type="submit"] {
+      margin-top: 30px;
+      padding: 14px;
+      width: 100%;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <form id="regForm" name="regForm">
+    <h2>Registration Form</h2>
+
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required />
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required />
+
+    <label for="ccn">Credit Card Number:</label>
+    <input type="text" id="ccn" name="ccn" required maxlength="16" pattern="\d{13,16}" title="13 to 16 digits" />
+
+    <div class="gender-group">
+      <label>Gender:</label>
+      <label class="gender-option">
+        <input type="radio" name="gender" value="Male" /> Male
+      </label>
+      <label class="gender-option">
+        <input type="radio" name="gender" value="Female" /> Female
+      </label>
+      <label class="gender-option">
+        <input type="radio" name="gender" value="Other" /> Other
+      </label>
+    </div>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required />
+
+    <input type="submit" value="Register" />
+  </form>
+
+  <script>
+    document.getElementById('regForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const ccn = document.getElementById('ccn').value.trim();
+      const genderRadios = document.getElementsByName('gender');
+      let genderSelected = false;
+
+      for (let i = 0; i < genderRadios.length; i++) {
+        if (genderRadios[i].checked) {
+          genderSelected = true;
+          break;
+        }
+      }
+
+      const ccPattern = /^[0-9]{13,16}$/;
+
+      if (!genderSelected) {
+        alert('Please select your gender.');
+        return;
+      }
+
+      if (!ccPattern.test(ccn)) {
+        alert('Please enter a valid credit card number (13 to 16 digits).');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return;
+      }
+
+      const today = new Date();
+      const dateStr = today.toLocaleDateString();
+
+      alert('Registered Successfully!\nSubmitted Date: ' + dateStr);
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>
